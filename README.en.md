@@ -1,12 +1,12 @@
-<div align="center">
+﻿<div align="center">
 
 # 🔮 堅奇門 · KinQiMen
 
-### Python 기문둔갑(奇門遁甲) 排盤 시스템 | Python Qimen Dunjia Divination System
+### Python 奇門遁甲排盤系統 | Python Qimen Dunjia Divination System
 
 ![banner](https://github.com/kentang2017/kinqimen/blob/master/assets/banner.png)
 
-**천년의 현묘한 술법, 한 줄의 코드 · Ancient Wisdom, Modern Code**
+**千年玄術，一行代碼 · Ancient Wisdom, Modern Code**
 
 [![Python](https://img.shields.io/pypi/pyversions/kinqimen?label=Python&logo=python)](https://pypi.org/project/kinqimen/)
 [![PIP Version](https://img.shields.io/pypi/v/kinqimen?label=PyPI&logo=pypi)](https://pypi.org/project/kinqimen/)
@@ -15,40 +15,38 @@
 [![Telegram](https://img.shields.io/badge/Chat-Telegram-blue?logo=telegram)](https://t.me/haizhonggum)
 [![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg?logo=paypal)](https://www.paypal.me/kinyeah)
 
-**🌐 온라인 排盤(포국) · Live Demo → [kinqimen.streamlitapp.com](https://kinqimen.streamlitapp.com)**
+**🌐 線上排盤 · Live Demo → [kinqimen.streamlitapp.com](https://kinqimen.streamlitapp.com)**
 
 </div>
 
-> 🇰🇷 이 저장소는 **molpass가 포크한 사본**입니다. 원문(中文·English)은 [README.en.md](./README.en.md)를 참고하세요.
-
 ---
 
-## 📖 도입 · Introduction
+## 📖 導讀 · Introduction
 
-> 기문둔갑(奇門遁甲)은 대육임(大六壬), 태을신수(太乙神數)와 더불어 **중국 3대 신비 예측술**로 불리며, 역대로 천자 곁의 국사(國師)와 군사(軍師)만이 익힐 수 있었다.
+> 奇門遁甲與大六壬、太乙神數並稱**中國三大神秘預測術**，歷代只有天子身邊的國師、軍師方能習得。
 >
 > *Qimen Dunjia is one of the legendary **Three Arts** of Chinese metaphysical divination — historically reserved for imperial advisors and military strategists.*
 
-**기문둔갑**(奇門遁甲, Qimen Dunjia)은 중국 고대에서 가장 심오한 예측학 중 하나입니다. 낙서구궁(洛書九宮)을 반(盤)으로 삼고, 음양오행·팔괘·천간지지·24절기를 결합하여 시공간이 회전하는 우주 에너지 매트릭스를 구성합니다. 전체 반에는 총 **1,080종의 국(局)**이 있어 매 시진마다 바뀌며, 천·지·인 삼재(三才)의 기운을 정밀하게 포착합니다. 의사결정, 방위, 사업, 그리고 개인의 길흉을 좇고 피하는 데 널리 활용됩니다.
+**奇門遁甲**（Qimen Dunjia）乃中國古代最高深的預測學之一。以洛書九宮為盤，配合陰陽五行、八卦、天干地支及二十四節氣，構建出一個時空旋轉的宇宙能量矩陣。全盤共有**1,080種局**，每個時辰輪換，精準捕捉天地人三才之氣，廣泛應用於決策、方位、商業及個人趨吉避凶。
 
 Qimen Dunjia is an ancient Chinese cosmic divination art that maps heaven, earth and human energies onto a 3×3 magic square of **Nine Palaces**. Rotating through **1,080 unique configurations** — one per double-hour — it incorporates yin-yang theory, the Five Elements, Eight Trigrams, Heavenly Stems, Earthly Branches, and the 24 Solar Terms. Used for centuries in military strategy, business decisions, travel planning, and personal forecasting.
 
 ---
 
-## ✨ 기능 특징 · Features
+## ✨ 功能特色 · Features
 
-| 기능 Feature | 설명 Description |
+| 功能 Feature | 說明 Description |
 |---|---|
-| 🕐 **시가기문(時家奇門)** Hour-based Qimen | 시진으로 기반(起盤)하는, 가장 흔히 쓰이는 전통 포국 방식 · Classic hour-based divination chart |
-| ⏱ **각가기문(刻家奇門)** Minute-based Qimen | 분 단위로 정밀 계산, 정확한 예측에 적합 · High-precision minute-level chart |
-| 📜 **금함옥경(金函玉鏡)** Golden Mirror | 금함 일가기문(日家奇門), 고전 일가 포국 · Classic daily Golden Letter Jade Mirror style |
-| 🔄 **탁보 / 치윤(拆補 / 置閏)** Two Calculation Methods | 탁보법과 치윤법을 모두 지원하여 각 유파에 유연 대응 · Supports both Chabu & Zhirun methods |
-| 🖥 **Web 포국 인터페이스** Web UI | Streamlit 기반 인터랙티브 온라인 포국 · Interactive online chart via Streamlit |
-| 🐍 **순수 Python** Pure Python | 가볍고 쓰기 쉬워 어떤 Python 프로젝트에도 임베드 가능 · Lightweight and easy to integrate |
+| 🕐 **時家奇門** Hour-based Qimen | 以時辰起盤，最常用之傳統起盤方式 · Classic hour-based divination chart |
+| ⏱ **刻家奇門** Minute-based Qimen | 以分鐘精算，適合精確預測 · High-precision minute-level chart |
+| 📜 **金函玉鏡** Golden Mirror | 金函日家奇門，古典日家排盤 · Classic daily Golden Letter Jade Mirror style |
+| 🔄 **拆補 / 置閏** Two Calculation Methods | 支援拆補法及置閏法，靈活對應各派 · Supports both Chabu & Zhirun methods |
+| 🖥 **Web 排盤介面** Web UI | Streamlit 互動式線上排盤 · Interactive online chart via Streamlit |
+| 🐍 **純 Python** Pure Python | 輕量易用，可嵌入任何 Python 項目 · Lightweight and easy to integrate |
 
 ---
 
-## 🚀 설치 · Installation
+## 🚀 安裝 · Installation
 
 ```bash
 pip install sxtwl
@@ -57,7 +55,7 @@ pip install kinqimen
 
 ---
 
-## ⚡ 빠른 시작 · Quickstart
+## ⚡ 快速上手 · Quickstart
 
 ```python
 from kinqimen import kinqimen
@@ -79,7 +77,7 @@ result = kinqimen.Qimen(year, month, day, hour, minute).overall()
 
 ---
 
-## 🗺 포국 예시 · Chart Preview
+## 🗺 排盤示意 · Chart Preview
 
 ```
 ＼  天蓬神　 │  天芮神　 │  天沖神　／
@@ -101,18 +99,18 @@ result = kinqimen.Qimen(year, month, day, hour, minute).overall()
 
 ---
 
-## 📦 의존 패키지 · Dependencies
+## 📦 依賴套件 · Dependencies
 
-- [`sxtwl`](https://pypi.org/project/sxtwl/) — 중국 음력/절기 계산 · Chinese lunar calendar & solar terms
-- [`kinliuren`](https://pypi.org/project/kinliuren/) — 대육임(大六壬) 포국 · Da Liu Ren divination
-- [`streamlit`](https://streamlit.io/) — Web 인터랙티브 인터페이스 · Web UI framework
-- [`pendulum`](https://pendulum.eustace.io/) — 시간대(timezone) 처리 · Timezone handling
+- [`sxtwl`](https://pypi.org/project/sxtwl/) — 中國農曆/節氣計算 · Chinese lunar calendar & solar terms
+- [`kinliuren`](https://pypi.org/project/kinliuren/) — 大六壬排盤 · Da Liu Ren divination
+- [`streamlit`](https://streamlit.io/) — Web 互動介面 · Web UI framework
+- [`pendulum`](https://pendulum.eustace.io/) — 時區處理 · Timezone handling
 
 ---
 
-## 🌐 온라인 포국 · Web App
+## 🌐 線上排盤 · Web App
 
-설치 없이 브라우저에서 바로 기문 포국을 체험할 수 있습니다:
+無需安裝，直接在瀏覽器中體驗奇門排盤：
 
 **Try it instantly in your browser — no installation needed:**
 
@@ -120,40 +118,45 @@ result = kinqimen.Qimen(year, month, day, hour, minute).overall()
 
 ---
 
-## 💬 커뮤니티 · Community
+## 💬 社群 · Community
 
-| 플랫폼 Platform | 링크 Link |
+| 平台 Platform | 連結 Link |
 |---|---|
-| 💬 Telegram 토론방 | [@haizhonggum](https://t.me/haizhonggum) |
-| 🐛 문제 제보 Issues | [GitHub Issues](https://github.com/kentang2017/kinqimen/issues) |
-| ☕ 작가 후원 Donate | [PayPal](https://www.paypal.me/kinyeah) |
+| 💬 Telegram 討論群 | [@haizhonggum](https://t.me/haizhonggum) |
+| 🐛 問題回報 Issues | [GitHub Issues](https://github.com/kentang2017/kinqimen/issues) |
+| ☕ 支持作者 Donate | [PayPal](https://www.paypal.me/kinyeah) |
 
 ---
 
-## 📣 위챗 공식 계정 · WeChat Official Account
+## 📣 微信公眾號 · WeChat Official Account
 
 <div align="center">
 
 ![WeChat QR](https://raw.githubusercontent.com/kentang2017/kinliuren/refs/heads/master/pic/%E5%9C%96%E7%89%87_20260316084147.jpg)
 
-*QR 코드를 스캔해 팔로우하고 더 많은 현학(玄學) 정보를 받아보세요 · Scan to follow for more metaphysics content*
+*掃碼關注，獲取更多玄學資訊 · Scan to follow for more metaphysics content*
 
 </div>
 
 ---
 
-## 📄 라이선스 · License
+## 📄 授權 · License
 
-본 프로젝트는 MIT 라이선스로 오픈소스 공개됩니다 · This project is open-sourced under the [MIT License](LICENSE).
+本項目以 MIT 授權條款開源 · This project is open-sourced under the [MIT License](LICENSE).
 
 ---
 
 <div align="center">
 
-**이 프로젝트가 도움이 되었다면 ⭐ Star를 눌러주세요!**
+**如果這個項目對您有幫助，歡迎點亮 ⭐ Star！**
 
 *If you find this project useful, please give it a ⭐ Star — it means a lot!*
 
 Made with ❤️ by [kentang2017](https://github.com/kentang2017)
 
 </div>
+
+
+
+
+
