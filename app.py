@@ -52,21 +52,21 @@ SYSTEM_PROMPTS_FILE = "data/system_prompts.json"
 
 def load_system_prompts():
     DEFAULT_SYSTEM_PROMPT = (
-        "你是一位奇門遁甲大師，精通《奇門遁甲統宗》、《奇門遁甲秘笈大全》、《煙波釣叟歌》等古籍及歷史案例。"
-        "請根據提供的奇門遁甲排盤數據，進行以下操作：\n"
-        "1. 解釋盤局的關鍵要素（九宮、天盤、地盤、九星、八門、八神、值符值使等）。\n"
-        "2. 結合奇門遁甲理論，分析盤局的吉凶格局和潛在影響。\n"
-        "3. 詳細評估各宮位的組合關係。\n"
-        "4. 提供實用的建議或應對策略。\n"
-        "請以清晰的結構（分段、標題）呈現，語言專業且易懂，適當引用歷史案例或經典理論。"
+        "당신은 《기문둔갑통종(奇門遁甲統宗)》, 《기문둔갑비급대전(奇門遁甲秘笈大全)》, 《연파조수가(煙波釣叟歌)》 등 고서와 역사 사례에 정통한 기문둔갑 대가입니다."
+        "제공된 기문둔갑 포국 데이터를 바탕으로 다음을 수행하세요:\n"
+        "1. 반국(盤局)의 핵심 요소(구궁·천반·지반·구성·팔문·팔신·치부치사 등)를 설명합니다.\n"
+        "2. 기문둔갑 이론에 결합하여 반국의 길흉 격국과 잠재적 영향을 분석합니다.\n"
+        "3. 각 궁위(宮位)의 조합 관계를 상세히 평가합니다.\n"
+        "4. 실용적인 조언이나 대응 전략을 제시합니다.\n"
+        "명확한 구조(단락·제목)로 제시하고, 전문적이면서도 이해하기 쉬운 한국어로 작성하며, 역사 사례나 고전 이론을 적절히 인용하세요."
     )
     try:
         with open(SYSTEM_PROMPTS_FILE, "r", encoding="utf-8") as f:
             return json.load(f)
     except (FileNotFoundError, json.JSONDecodeError):
         default_data = {
-            "prompts": [{"name": "奇門遁甲大師", "content": DEFAULT_SYSTEM_PROMPT}],
-            "selected": "奇門遁甲大師",
+            "prompts": [{"name": "기문둔갑 대가", "content": DEFAULT_SYSTEM_PROMPT}],
+            "selected": "기문둔갑 대가",
         }
         with open(SYSTEM_PROMPTS_FILE, "w", encoding="utf-8") as f:
             json.dump(default_data, f, indent=2, ensure_ascii=False)
@@ -78,7 +78,7 @@ def save_system_prompts(prompts_data):
             json.dump(prompts_data, f, indent=2, ensure_ascii=False)
         return True
     except Exception as e:
-        st.error(f"儲存系統提示時發生錯誤：{e}")
+        st.error(f"시스템 프롬프트 저장 중 오류가 발생했습니다: {e}")
         return False
 
 def format_qimen_results_for_prompt(q, gz_str, jq_str, lunar_info, paipan_info, is_shijia, y, m, d, h, minute):
@@ -117,7 +117,7 @@ def format_qimen_results_for_prompt(q, gz_str, jq_str, lunar_info, paipan_info, 
     return "\n\n".join(lines)
 
 # ------------------- 頁面設定 -------------------
-st.set_page_config(page_title="堅奇門 - 奇門排盤", page_icon="🧮", layout="wide")
+st.set_page_config(page_title="堅奇門 - 기문둔갑 포국", page_icon="🧮", layout="wide")
 
 # ------------------- 固定聊天區域 CSS -------------------
 st.markdown("""
@@ -138,11 +138,11 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-pan, example, guji, log, links = st.tabs(['🧮 排盤', '📜 案例', '📚 古籍', '🆕 更新', '🔗 連結'])
+pan, example, guji, log, links = st.tabs(['🧮 포국', '📜 사례', '📚 고서', '🆕 업데이트', '🔗 링크'])
 
 with example:
-    st.subheader("📜 案例")
-    st.info("案例內容即將更新，敬請期待。")
+    st.subheader("📜 사례")
+    st.info("사례 내용은 곧 업데이트될 예정입니다. 기대해 주세요.")
 
 with guji:
     st.markdown(load_local_md("docs/guji.md"), unsafe_allow_html=True)
@@ -151,32 +151,30 @@ with log:
     st.markdown(load_local_md("docs/log.md"), unsafe_allow_html=True)
 
 with links:
-    st.subheader("🔗 相關連結")
+    st.subheader("🔗 관련 링크")
     st.markdown("""
-- 💬 [Telegram 討論群](https://t.me/haizhonggum)
 - 🐛 [GitHub Issues](https://github.com/kentang2017/kinqimen/issues)
 - 📦 [PyPI - kinqimen](https://pypi.org/project/kinqimen/)
-- ☕ [支持作者 (PayPal)](https://www.paypal.me/kinyeah)
 """)
 
 # ------------------- 側邊欄 -------------------
 with st.sidebar:
-    pp_date = st.date_input("日期", pdlm.now(tz='Asia/Shanghai').date())
-    pp_time = st.text_input('時間 (如 18:30)', '')
-    method = st.selectbox('起盤方式', ('時家奇門', '刻家奇門'))
-    paipan = st.selectbox('排盤方式', ('置閏', '拆補'))
-    manual = st.button('手動起盤')
-    instant = st.button('即時起盤')
+    pp_date = st.date_input("날짜", pdlm.now(tz='Asia/Shanghai').date())
+    pp_time = st.text_input('시간 (예: 18:30)', '')
+    method = st.selectbox('기반 방식', ('시가기문(時家奇門)', '각가기문(刻家奇門)'))
+    paipan = st.selectbox('포국 방식', ('치윤(置閏)', '탁보(拆補)'))
+    manual = st.button('수동 기반')
+    instant = st.button('즉시 기반')
 
-    is_shijia = method == '時家奇門'
-    pai = 2 if paipan == '置閏' else 1   # 1=拆補 2=置閏
+    is_shijia = method == '시가기문(時家奇門)'
+    pai = 2 if paipan == '치윤(置閏)' else 1   # 1=탁보(拆補) 2=치윤(置閏)
 
-    # ------------------- AI 設置 -------------------
+    # ------------------- AI 설정 -------------------
     st.markdown("---")
-    st.header("🤖 AI設置")
+    st.header("🤖 AI 설정")
 
     selected_model = st.selectbox(
-        "AI 模型",
+        "AI 모델",
         options=CEREBRAS_MODEL_OPTIONS,
         index=0,
         key="cerebras_model_selector",
@@ -194,11 +192,11 @@ with st.sidebar:
             selected_index = prompt_names.index(selected_prompt)
 
         selected_name = st.selectbox(
-            "選擇系統提示",
+            "시스템 프롬프트 선택",
             options=prompt_names,
             index=selected_index,
             key="qimen_system_prompt_selector",
-            help="選擇用於AI模型的系統提示，指導其分析奇門遁甲排盤結果",
+            help="AI 모델에 사용할 시스템 프롬프트를 선택합니다. 기문둔갑 포국 결과 분석을 지도합니다",
         )
 
         system_prompts_data["selected"] = selected_name
@@ -217,32 +215,32 @@ with st.sidebar:
         st.session_state.last_selected_qimen_prompt = selected_name
 
         new_content = st.text_area(
-            "編輯系統提示",
+            "시스템 프롬프트 편집",
             value=st.session_state.qimen_system_prompt,
             height=150,
-            placeholder="範例：你是一位奇門遁甲專家，根據排盤數據提供詳細分析...",
+            placeholder="예: 당신은 기문둔갑 전문가입니다. 포국 데이터를 바탕으로 상세한 분석을 한국어로 제공하세요...",
             key="qimen_system_editor",
         )
         st.session_state.qimen_system_prompt = new_content
 
         col1, col2 = st.columns(2)
         with col1:
-            if st.button("💾 更新提示", key="update_qimen_prompt_button"):
+            if st.button("💾 프롬프트 업데이트", key="update_qimen_prompt_button"):
                 for prompt in prompts_list:
                     if prompt["name"] == selected_name:
                         prompt["content"] = new_content
                         break
                 if save_system_prompts(system_prompts_data):
-                    st.toast(f"已更新提示：{selected_name}")
+                    st.toast(f"프롬프트를 업데이트했습니다: {selected_name}")
         with col2:
-            if st.button("🗑️ 刪除提示", key="delete_qimen_prompt_button",
+            if st.button("🗑️ 프롬프트 삭제", key="delete_qimen_prompt_button",
                          disabled=len(prompts_list) <= 1):
                 prompts_list = [p for p in prompts_list if p["name"] != selected_name]
                 system_prompts_data["prompts"] = prompts_list
                 if selected_name == selected_prompt and prompts_list:
                     system_prompts_data["selected"] = prompts_list[0]["name"]
                 if save_system_prompts(system_prompts_data):
-                    st.toast(f"已刪除提示：{selected_name}")
+                    st.toast(f"프롬프트를 삭제했습니다: {selected_name}")
                     st.rerun()
 
     if "qimen_form_key_suffix" not in st.session_state:
@@ -251,34 +249,34 @@ with st.sidebar:
     name_key = f"new_qimen_prompt_name_{st.session_state.qimen_form_key_suffix}"
     content_key = f"new_qimen_prompt_content_{st.session_state.qimen_form_key_suffix}"
 
-    with st.expander("➕ 新增系統提示", expanded=False):
-        new_prompt_name = st.text_input("提示名稱", key=name_key)
+    with st.expander("➕ 시스템 프롬프트 추가", expanded=False):
+        new_prompt_name = st.text_input("프롬프트 이름", key=name_key)
         new_prompt_content = st.text_area(
-            "提示內容",
+            "프롬프트 내용",
             height=100,
-            placeholder="輸入AI分析指令...",
+            placeholder="AI 분석 지시문을 입력하세요...",
             key=content_key,
         )
-        if st.button("新增提示", key="add_qimen_prompt_button",
+        if st.button("프롬프트 추가", key="add_qimen_prompt_button",
                      disabled=not new_prompt_name or not new_prompt_content):
             if new_prompt_name in prompt_names:
-                st.error(f"提示名稱「{new_prompt_name}」已存在")
+                st.error(f"프롬프트 이름 「{new_prompt_name}」이(가) 이미 존재합니다")
             else:
                 prompts_list.append({"name": new_prompt_name, "content": new_prompt_content})
                 system_prompts_data["prompts"] = prompts_list
                 if save_system_prompts(system_prompts_data):
                     st.session_state.qimen_form_key_suffix += 1
-                    st.toast(f"已新增提示：{new_prompt_name}")
+                    st.toast(f"프롬프트를 추가했습니다: {new_prompt_name}")
                     st.rerun()
 
-    if st.toggle("⚙️ 進階設置", key="qimen_advanced_settings_toggle"):
+    if st.toggle("⚙️ 고급 설정", key="qimen_advanced_settings_toggle"):
         st.session_state.qimen_max_tokens = st.slider(
-            "最大 Tokens",
+            "최대 Tokens",
             1024, 32768,
             st.session_state.get("qimen_max_tokens", 8192),
             step=1024,
             key="qimen_max_tokens_slider",
-            help="控制AI回應的最大長度（較低的值可減少配額消耗）",
+            help="AI 응답의 최대 길이를 조절합니다(값이 낮을수록 토큰 사용량이 줄어듭니다)",
         )
         st.session_state.qimen_temperature = st.slider(
             "Temperature",
@@ -286,7 +284,7 @@ with st.sidebar:
             st.session_state.get("qimen_temperature", 0.7),
             step=0.05,
             key="qimen_temperature_slider",
-            help="控制AI回應的創造性（0=精確，1.5=高創造性）",
+            help="AI 응답의 창의성을 조절합니다(0=정확, 1.5=높은 창의성)",
         )
 
 # ------------------- 共用函數 -------------------
@@ -483,10 +481,10 @@ def render_pan(y, m, d, h, minute, is_shijia=True):
     yang_cw = ["子", "寅", "辰", "午", "申", "戌"]
     start_idx = yang_cw.index(wu_branch)
 
-    with st.expander("🔒 真人閉六戊法（法術奇門） - 十二地支圈 SVG 視覺化"):
+    with st.expander("🔒 진인폐육무법(真人閉六戊法, 법술기문) - 십이지지권 SVG 시각화"):
         version_choice = st.radio(
-            "選擇版本",
-            ["演義版（逆布連土）", "寶鑑版（順布連土）"],
+            "버전 선택",
+            ["연의판(演義版, 역포연토)", "보감판(寶鑑版, 순포연토)"],
             horizontal=True,
             key="sixwu_version",
         )
@@ -571,11 +569,11 @@ with pan:
 
     # ------------------- AI 分析按鈕 -------------------
     if chart_params:
-        if st.button("🔍 使用AI分析排盤結果", key="analyze_with_ai"):
-            with st.spinner("AI正在分析奇門遁甲排盤結果..."):
+        if st.button("🔍 AI로 포국 결과 분석", key="analyze_with_ai"):
+            with st.spinner("AI가 기문둔갑 포국 결과를 분석하는 중..."):
                 cerebras_api_key = st.secrets.get("CEREBRAS_API_KEY", "") or os.getenv("CEREBRAS_API_KEY", "")
                 if not cerebras_api_key:
-                    st.error("CEREBRAS_API_KEY 未設置，請在 .streamlit/secrets.toml 或環境變量中設置。")
+                    st.error("CEREBRAS_API_KEY가 설정되지 않았습니다. .streamlit/secrets.toml 또는 환경 변수에 설정해 주세요.")
                 else:
                     try:
                         client = CerebrasClient(api_key=cerebras_api_key)
@@ -599,12 +597,12 @@ with pan:
                         }
                         response = client.get_chat_completion(**api_params)
                         raw_response = response.choices[0].message.content
-                        with st.expander("🤖 AI分析結果", expanded=True):
+                        with st.expander("🤖 AI 분석 결과", expanded=True):
                             st.markdown(raw_response)
                     except RateLimitError as e:
                         st.error(f"⚠️ {e}")
                     except Exception as e:
-                        st.error(f"調用AI時發生錯誤：{e}")
+                        st.error(f"AI 호출 중 오류가 발생했습니다: {e}")
 
 
 # ------------------- LLM 聊天（固定在頁面底部） -------------------
@@ -616,7 +614,7 @@ if "chat_expanded" not in st.session_state:
 
 def _build_chat_system_prompt(chart_params_local):
     """Build the system prompt for the chat, optionally including chart context."""
-    base = st.session_state.get("qimen_system_prompt", "你是一位奇門遁甲大師。")
+    base = st.session_state.get("qimen_system_prompt", "당신은 기문둔갑 대가입니다. 한국어로 답변하세요.")
     if chart_params_local:
         cp = chart_params_local
         lunar_data = config.lunar_date_d(cp["y"], cp["m"], cp["d"])
@@ -627,19 +625,19 @@ def _build_chat_system_prompt(chart_params_local):
             lunar_info, paipan_info, cp["is_shijia"],
             cp["y"], cp["m"], cp["d"], cp["h"], cp["minute"],
         )
-        return base + "\n\n以下是當前排盤數據供參考：\n" + chart_text
+        return base + "\n\n다음은 현재 포국 데이터입니다(참고용):\n" + chart_text
     return base
 
 # --- Fixed chat UI at bottom ---
 with st.container():
     col_title, col_toggle, col_clear = st.columns([6, 2, 2])
     with col_title:
-        st.markdown("#### 💬 AI 聊天")
+        st.markdown("#### 💬 AI 채팅")
     with col_toggle:
-        if st.button("📜 展開/收起歷史", key="toggle_chat_history"):
+        if st.button("📜 기록 펼치기/접기", key="toggle_chat_history"):
             st.session_state.chat_expanded = not st.session_state.chat_expanded
     with col_clear:
-        if st.button("🗑️ 清除對話", key="clear_chat"):
+        if st.button("🗑️ 대화 지우기", key="clear_chat"):
             st.session_state.chat_messages = []
             st.rerun()
 
@@ -652,7 +650,7 @@ if st.session_state.chat_expanded and st.session_state.chat_messages:
                 st.markdown(msg["content"])
 
 # Chat input (at root level, auto-pins to bottom of viewport)
-user_input = st.chat_input("輸入問題，向AI諮詢奇門遁甲...", key="chat_input")
+user_input = st.chat_input("질문을 입력해 AI에게 기문둔갑을 문의하세요...", key="chat_input")
 if user_input:
     st.session_state.chat_messages.append({"role": "user", "content": user_input})
     # Auto-expand history when a message is sent
@@ -671,7 +669,7 @@ if user_input:
             for msg in st.session_state.chat_messages[-20:]:
                 api_messages.append({"role": msg["role"], "content": msg["content"]})
 
-            with st.spinner("AI 思考中..."):
+            with st.spinner("AI 생각 중..."):
                 response = client.get_chat_completion(
                     messages=api_messages,
                     model=selected_model,
@@ -685,4 +683,4 @@ if user_input:
         except RateLimitError as e:
             st.error(f"⚠️ {e}")
         except Exception as e:
-            st.error(f"調用AI時發生錯誤：{e}")
+            st.error(f"AI 호출 중 오류가 발생했습니다: {e}")

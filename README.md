@@ -12,8 +12,6 @@
 [![PIP Version](https://img.shields.io/pypi/v/kinqimen?label=PyPI&logo=pypi)](https://pypi.org/project/kinqimen/)
 [![Downloads](https://img.shields.io/pypi/dm/kinqimen?label=Downloads&logo=pypi&color=blue)](https://pypi.org/project/kinqimen/)
 [![License](https://img.shields.io/github/license/kentang2017/kinqimen?label=License)](LICENSE)
-[![Telegram](https://img.shields.io/badge/Chat-Telegram-blue?logo=telegram)](https://t.me/haizhonggum)
-[![Donate](https://img.shields.io/badge/Donate-PayPal-green.svg?logo=paypal)](https://www.paypal.me/kinyeah)
 
 **🌐 온라인 排盤(포국) · Live Demo → [kinqimen.streamlitapp.com](https://kinqimen.streamlitapp.com)**
 
@@ -120,40 +118,12 @@ result = kinqimen.Qimen(year, month, day, hour, minute).overall()
 
 ---
 
-## 💬 커뮤니티 · Community
+## 🐛 이슈 · Issues
 
-| 플랫폼 Platform | 링크 Link |
-|---|---|
-| 💬 Telegram 토론방 | [@haizhonggum](https://t.me/haizhonggum) |
-| 🐛 문제 제보 Issues | [GitHub Issues](https://github.com/kentang2017/kinqimen/issues) |
-| ☕ 작가 후원 Donate | [PayPal](https://www.paypal.me/kinyeah) |
-
----
-
-## 📣 위챗 공식 계정 · WeChat Official Account
-
-<div align="center">
-
-![WeChat QR](https://raw.githubusercontent.com/kentang2017/kinliuren/refs/heads/master/pic/%E5%9C%96%E7%89%87_20260316084147.jpg)
-
-*QR 코드를 스캔해 팔로우하고 더 많은 현학(玄學) 정보를 받아보세요 · Scan to follow for more metaphysics content*
-
-</div>
+[GitHub Issues](https://github.com/kentang2017/kinqimen/issues)
 
 ---
 
 ## 📄 라이선스 · License
 
-본 프로젝트는 MIT 라이선스로 오픈소스 공개됩니다 · This project is open-sourced under the [MIT License](LICENSE).
-
----
-
-<div align="center">
-
-**이 프로젝트가 도움이 되었다면 ⭐ Star를 눌러주세요!**
-
-*If you find this project useful, please give it a ⭐ Star — it means a lot!*
-
-Made with ❤️ by [kentang2017](https://github.com/kentang2017)
-
-</div>
+[MIT License](LICENSE)
